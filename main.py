@@ -41,3 +41,12 @@ async def not_timed():
     return {"message": "Not timed"}
 
 
+@app.get("/prueba", tags =['test'])
+async def test():
+    return {'message': "Este mensaje es de prueba"}
+
+
+@app.post("/prueba", tags=['test'])
+async def post_test(txt: str):
+  return {'message': f'Este mensaje es de prueba y esto posteaste: {txt}'}
+
