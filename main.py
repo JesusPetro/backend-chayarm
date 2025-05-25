@@ -10,8 +10,8 @@ app = FastAPI()
 origin = [
     'http://localhost:5173',
     'https://hmi-chayarm-c9iqr11sb-gsus-projects-b0d1512e.vercel.app',
-    'https://hmi-chayarm.vercel.app/',
-    ''
+    'https://hmi-chayarm.vercel.app',
+    'https://hmi-chayarm-gsus-projects-b0d1512e.vercel.app'
 ]
 
 app.add_middleware(
