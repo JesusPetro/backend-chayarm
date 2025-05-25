@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 origin = [
     'http://localhost:5173',
-    'https://backend-chayarm.onrender.com'
+    'https://hmi-chayarm-c9iqr11sb-gsus-projects-b0d1512e.vercel.app'
 ]
 
 app.add_middleware(
