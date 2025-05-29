@@ -1,5 +1,5 @@
 import serial
-from services import *
+from services import Conexion
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import Optional

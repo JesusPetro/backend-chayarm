@@ -3,6 +3,7 @@ import time
 from fastapi import APIRouter, FastAPI, Request, Response
 from fastapi.routing import APIRoute
 from api import *
+from services.kInversa import KInverse
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -36,6 +37,7 @@ value_prueba = [
   }
 ]
 
+app.include_router(database.router)
 app.include_router(esp32.router)
 
 @app.get("/", tags=["Hola"])
@@ -52,3 +54,8 @@ async def test():
 async def post_test(txt: str):
   return {'message': f'Este mensaje es de prueba y esto posteaste: {txt}'}
 
+@app.get("/prueba/kInverse", tags= ['test'])
+async def test_k(x: float,y: float, z: float):
+  intento = KInverse()
+  return intento.Inter(x,y,z)
+  

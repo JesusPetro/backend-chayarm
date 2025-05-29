@@ -1,3 +1,3 @@
-from .v1 import esp32
+from .v1 import esp32, database
 
-__all__ = ["esp32"]
+__all__ = ["esp32", "database"]
