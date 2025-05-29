@@ -59,3 +59,6 @@ async def test_k(x: float,y: float, z: float):
   intento = KInverse()
   return intento.Inter(x,y,z)
   
+@app.get('/validacion')
+async def validacion_cv():
+   return 'Correcto'
