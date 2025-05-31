@@ -22,6 +22,10 @@ async def post_History(data: History):
                        .execute()
     return response.data
 
-@router.get("/get/instruction/", tags = ['Kinematics'])
+@router.get("/get/instruction", tags = ['Kinematics'])
 async def get_angles(instruction: Optional[str] = '', select: Optional[str] = 'angles'):
   return supabase.table('instructions').select(select).execute().data[0]
+
+@router.get("/get_instruction/", tags=['kinematics'])
+async def get_angles_by_id(instruction: Optional[str] = 'search_body_a%', select: Optional[str] = 'angles'):
+   return supabase.table('instructions').select(select).like('command',instruction).execute().data
