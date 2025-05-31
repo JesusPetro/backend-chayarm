@@ -54,11 +54,16 @@ async def test():
 async def post_test(txt: str):
   return {'message': f'Este mensaje es de prueba y esto posteaste: {txt}'}
 
-@app.get("/prueba/kInverse", tags= ['test'])
+@app.get("/prueba/kInverse", tags= ['Kinematics'])
 async def test_k(x: float,y: float, z: float):
-  intento = KInverse()
-  return intento.Inter(x,y,z)
+  kinematic = KInverse()
+
+  #TODO: mandar a leer base de datos. 
   
+  return kinematic.Inter(x,y,z)
+
+
+
 @app.get('/validacion')
 async def validacion_cv():
    return 'Correcto'
