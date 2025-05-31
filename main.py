@@ -59,9 +59,8 @@ async def test_k(x: float,y: float, z: float):
   kinematic = KInverse()
 
   #TODO: mandar a leer base de datos. 
-  
-  return kinematic.Inter(x,y,z)
 
+  return kinematic.Inter(x,y,z)
 
 
 @app.get('/validacion')

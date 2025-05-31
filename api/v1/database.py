@@ -21,3 +21,7 @@ async def post_History(data: History):
                        .insert(data.model_dump()) \
                        .execute()
     return response.data
+
+@router.get("/get/instruction/", tags = ['Kinematics'])
+async def get_angles(instruction: Optional[str] = '', select: Optional[str] = 'angles'):
+  return supabase.table('instructions').select(select).execute().data[0]
