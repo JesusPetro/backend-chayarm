@@ -14,10 +14,11 @@ class History(BaseModel):
     torso: str
     legs: str
 
-
-
 def conexion_db():
     return supabase.table('assembly_records').select('*').execute().data
+
+def get_instruction_angles(instruction: str = 'search_body_a%', select: str = 'angles'):
+   return supabase.table('instructions').select(select).like('command',instruction).execute().data
 
 if __name__ == "__main__":
     print(conexion_db())

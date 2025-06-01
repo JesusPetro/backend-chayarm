@@ -38,6 +38,7 @@ value_prueba = [
 ]
 
 app.include_router(database.router)
+app.include_router(instructions.router)
 app.include_router(esp32.router)
 
 @app.get("/", tags=["Hola"])

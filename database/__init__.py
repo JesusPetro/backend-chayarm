@@ -1,3 +1,3 @@
-from .db import supabase, History
+from .db import supabase, History, get_instruction_angles
 
-__all__ = ['supabase', 'History']
+__all__ = ['supabase', 'History', 'get_instruction_angles']

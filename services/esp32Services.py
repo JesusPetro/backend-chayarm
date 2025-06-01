@@ -6,7 +6,6 @@ Aqui es donde se hará la logica de la conexión de la esp32
 
 """
 
-
 class Conexion:
     def __init__(self, puerto='COM4', baudrate=115200, timeout=10):
         self.puerto = puerto
