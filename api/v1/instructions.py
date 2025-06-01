@@ -47,7 +47,7 @@ neutral = get_instruction_angles(instruction=commands['neutral'])
 final_neutral = get_instruction_angles(instruction=commands['neutral_final'])
 gripper_close = get_instruction_angles(instruction=commands['gripper']['close'])
 gripper_open = get_instruction_angles(instruction=commands['gripper']['open'])
-gripper_openv2 = get_instruction_angles(instruction=commands['gripper']['open_gripperv2'])
+gripper_openv2 = get_instruction_angles(instruction=commands['gripper']['open_v2'])
     
 
 @router.get('/stept_assemble/')
