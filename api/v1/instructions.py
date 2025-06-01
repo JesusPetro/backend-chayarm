@@ -36,6 +36,7 @@ commands = {
     },
     'gripper': {
         'open': 'open_gripper',
+        'open_v2': 'open_gripperv2',
         'close': 'close_gripper'
     },
     'neutral': 'neutral_position',
@@ -46,15 +47,16 @@ neutral = get_instruction_angles(instruction=commands['neutral'])
 final_neutral = get_instruction_angles(instruction=commands['neutral_final'])
 gripper_close = get_instruction_angles(instruction=commands['gripper']['close'])
 gripper_open = get_instruction_angles(instruction=commands['gripper']['open'])
+gripper_openv2 = get_instruction_angles(instruction=commands['gripper']['open_gripperv2'])
     
 
 @router.get('/stept_assemble/')
 async def get_steps_to_assemble(head: Optional[str] = 'white', body: Optional[str] = 'white', leg: Optional[str] = 'white'):
     
     steps = [] + final_neutral
-    steps += get_instruction_angles(instruction=commands['leg']['search'][leg])   + gripper_close + neutral + get_instruction_angles(instruction=commands['leg']['put'])  + gripper_open
+    steps += get_instruction_angles(instruction=commands['leg']['search'][leg])   + gripper_close + neutral + get_instruction_angles(instruction=commands['leg']['put'])  + gripper_openv2
     steps += neutral
-    steps += get_instruction_angles(instruction=commands['body']['search'][body]) + gripper_close + neutral + get_instruction_angles(instruction=commands['body']['put']) + gripper_open
+    steps += get_instruction_angles(instruction=commands['body']['search'][body]) + gripper_close + neutral + get_instruction_angles(instruction=commands['body']['put']) + gripper_openv2
     steps += neutral
     steps += get_instruction_angles(instruction=commands['head']['search'][head]) + gripper_close + neutral + get_instruction_angles(instruction=commands['head']['put']) + gripper_open
     
