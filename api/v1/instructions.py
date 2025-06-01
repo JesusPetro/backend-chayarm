@@ -51,7 +51,7 @@ gripper_open = get_instruction_angles(instruction=commands['gripper']['open'])
 @router.get('/stept_assemble/')
 async def get_steps_to_assemble(head: Optional[str] = 'white', body: Optional[str] = 'white', leg: Optional[str] = 'white'):
     
-    steps = []
+    steps = [] + final_neutral
     steps += get_instruction_angles(instruction=commands['leg']['search'][leg])   + gripper_close + neutral + get_instruction_angles(instruction=commands['leg']['put'])  + gripper_open
     steps += neutral
     steps += get_instruction_angles(instruction=commands['body']['search'][body]) + gripper_close + neutral + get_instruction_angles(instruction=commands['body']['put']) + gripper_open
