@@ -18,7 +18,7 @@ def conexion_db():
     return supabase.table('assembly_records').select('*').execute().data
 
 def get_instruction_angles(instruction: str = 'search_body_a%', select: str = 'angles'):
-   return supabase.table('instructions').select(select).like('command',instruction).execute().data
+   return supabase.table('instructions').select(select).like('command',instruction).order('id', desc=False).execute().data
 
 if __name__ == "__main__":
     print(conexion_db())
