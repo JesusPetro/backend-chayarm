@@ -55,14 +55,14 @@ async def get_steps_to_assemble(head: Optional[str] = 'white', body: Optional[st
     
     steps = [] + final_neutral
     steps += get_instruction_angles(instruction=commands['leg']['search'][leg])   + gripper_closev2 + neutral + get_instruction_angles(instruction=commands['leg']['put'])  + gripper_open
-    steps += neutral + [{'q5': 90}]
+    steps += neutral + [{'angles': {'q5': 90}}]
     steps += get_instruction_angles(instruction=commands['body']['search'][body]) + gripper_closev2 
     
     if body == 'blue':
-        steps += [{'q3': 97}]
+        steps += [{'angles': {'q3': 97}}]
 
     steps += neutral + get_instruction_angles(instruction=commands['body']['put']) + gripper_open
-    steps += [{'q2': 90, 'q5': 90}] + [{'q3': 90}]
+    steps += [{'angles': {'q2': 90, 'q5': 90}}] + [{'angles': {'q3': 90}}]
     steps += get_instruction_angles(instruction=commands['head']['search'][head]) + gripper_close + neutral + get_instruction_angles(instruction=commands['head']['put']) + gripper_open
     
     steps += final_neutral
