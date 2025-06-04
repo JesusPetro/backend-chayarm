@@ -9,7 +9,23 @@ router = APIRouter(
     responses={404: {"description": "Fallo conexion"}}
 )
 
+valores = []
 
+@router.get('/get_pieces', tags = ['History'])
+async def get_pieces():
+
+    opc = {
+        '#D3D3D3': 'white',
+        '#0074D9': 'blue',
+        '#FF6347': 'red'
+    }
+
+    if len(valores) > 0:
+        intento = valores.pop()
+        intento = {'color1': opc[intento[0]['head']], 'color2': opc[intento[0]['torso']], 'color3': opc[intento[0]['legs']]}
+    else: 
+        intento = []
+    return intento
 
 @router.get('/getHistory', tags = ['History'])
 async def get_table(select: Optional[str] = '*'): 
@@ -20,6 +36,7 @@ async def post_History(data: History):
     response = supabase.table("assembly_records") \
                        .insert(data.model_dump()) \
                        .execute()
+    valores.append(response.data)
     return response.data
 
 @router.get("/get/instruction", tags = ['Kinematics'])
