@@ -66,12 +66,12 @@ class KInverse():
                 q_interp = np.clip(np.round(q_interp), 0, 180)
 
                 jsonData = {
-                    'q1': int(q_interp[0]),
-                    'q2': int(q_interp[1]),
-                    'q3': int(q_interp[2]),
-                    'q4': int(180 - q_interp[3] - 180),
-                    'q5': int(180 - q_interp[4]),
-                    'q6': int(q_interp[5])
+                    's1': int(q_interp[0]),
+                    's2': int(q_interp[1]),
+                    's3': int(q_interp[2]),
+                    's4': int(180 - q_interp[3] - 180),
+                    's5': int(180 - q_interp[4]),
+                    's6': int(q_interp[5])
                 }
 
                 print("→", jsonData)
